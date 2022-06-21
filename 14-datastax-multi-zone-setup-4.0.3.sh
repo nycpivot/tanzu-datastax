@@ -1,16 +1,10 @@
 #!/bin/bash
 
-rm -rf datastax
-mkdir datastax
-cd datastax
-
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml
 
-wget https://raw.githubusercontent.com/k8ssandra/cass-operator/master/operator/k8s-flavors/eks/storage.yaml
-kubectl apply -f storage.yaml
+kubectl apply -f https://raw.githubusercontent.com/k8ssandra/cass-operator/master/operator/k8s-flavors/eks/storage.yaml
 
-wget https://raw.githubusercontent.com/k8ssandra/cass-operator/v1.7.1/docs/user/cass-operator-manifests.yaml
-kubectl apply -f cass-operator-manifests.yaml
+kubectl apply -f https://raw.githubusercontent.com/k8ssandra/cass-operator/v1.7.1/docs/user/cass-operator-manifests.yaml
 
 kubectl create secret generic cassandra-admin-secret -n cass-operator \
 	--from-literal=username=cassandra-admin \
