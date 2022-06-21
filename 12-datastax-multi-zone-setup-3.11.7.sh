@@ -13,7 +13,7 @@ kind: CassandraDatacenter
 metadata:
   # The datacenter name.
   name: cass-datacenter-multi
-	namespace: cass-operator
+  namespace: cass-operator
 spec:
   # The cluster name.
   clusterName: cass-cluster-multi

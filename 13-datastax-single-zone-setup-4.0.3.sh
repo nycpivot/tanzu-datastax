@@ -6,7 +6,7 @@ apiVersion: cassandra.datastax.com/v1beta1
 kind: CassandraDatacenter
 metadata:
   name: cass-datacenter-single
-	namespace: cass-operator
+  namespace: cass-operator
 spec:
   clusterName: cass-cluster-single
   serverType: cassandra
