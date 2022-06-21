@@ -1,17 +1,5 @@
 #!/bin/bash
 
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml
-
-kubectl apply -f https://raw.githubusercontent.com/k8ssandra/cass-operator/master/operator/k8s-flavors/eks/storage.yaml
-
-kubectl apply -f https://raw.githubusercontent.com/k8ssandra/cass-operator/v1.7.1/docs/user/cass-operator-manifests.yaml
-
-kubectl create secret generic cassandra-admin-secret -n cass-operator \
-	--from-literal=username=cassandra-admin \
-	--from-literal=password=cassandra-admin-password
-	
-kubectl get pods -n cass-operator -w
-
 rm cass-datacenter-multi-4.0.3.yaml
 cat <<EOF | tee cass-datacenter-multi-4.0.3.yaml
 apiVersion: cassandra.datastax.com/v1beta1
@@ -70,4 +58,3 @@ kubectl get pods -n cass-operator -w
 
 #kubectl -n cass-operator get pods --selector cassandra.datastax.com/cluster=cass-cluster-multi
 #kubectl -n cass-operator get cassdc/cass-datacenter-multi -o "jsonpath={.status.cassandraOperatorProgress}"
-
