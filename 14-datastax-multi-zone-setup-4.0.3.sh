@@ -5,7 +5,7 @@ cat <<EOF | tee cass-datacenter-multi-4.0.3.yaml
 apiVersion: cassandra.datastax.com/v1beta1
 kind: CassandraDatacenter
 metadata:
-  name: cass-datacenter-multi
+  name: cdc-multi
   namespace: cass-operator
 spec:
   clusterName: cass-cluster-multi
@@ -48,7 +48,7 @@ spec:
       authorizer: CassandraAuthorizer
       role_manager: CassandraRoleManager
     # additional-jvm-opts:
-    #   - "-Dcassandra.system_distributed_replication_dc_names=cass-datacenter-multi"
+    #   - "-Dcassandra.system_distributed_replication_dc_names=cdc-multi"
     #   - "-Dcassandra.system_distributed_replication_per_dc=3"
 EOF
 		

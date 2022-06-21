@@ -12,7 +12,7 @@ apiVersion: cassandra.datastax.com/v1beta1
 kind: CassandraDatacenter
 metadata:
   # The datacenter name.
-  name: cass-datacenter-single
+  name: cdc-single
   namespace: cass-operator
 spec:
   # The cluster name.
@@ -111,7 +111,7 @@ spec:
       max_heap_size: "14G"
       additional-jvm-opts:
         # As the database comes up for the first time, set system keyspaces to RF=3
-        - "-Dcassandra.system_distributed_replication_dc_names=cass-datacenter-single"
+        - "-Dcassandra.system_distributed_replication_dc_names=cdc-single"
         - "-Dcassandra.system_distributed_replication_per_dc=3"
 EOF
 		
