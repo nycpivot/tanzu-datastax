@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm k8ssandra-datacenter-single.yaml
-cat <<EOF | tee k8ssandra-datacenter.yaml
+cat <<EOF | tee k8ssandra-datacenter-single.yaml
 cassandra:
   auth:
     superuser:
@@ -19,3 +19,6 @@ helm repo add k8ssandra https://helm.k8ssandra.io/stable
 helm install k8ssandra k8ssandra/k8ssandra -f k8ssandra-datacenter-single.yaml -n k8ssandra
 	
 kubectl get pods -n k8ssandra -w
+
+
+kubectl port-forward -n k8ssandra svc/k8ssandra-dc1-stargate-service 8080 8081 8082 9042 &

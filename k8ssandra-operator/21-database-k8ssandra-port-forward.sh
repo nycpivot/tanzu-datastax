@@ -1,4 +1,8 @@
-kubectl get pods -n cass-operator
+#!/bin/bash
+
+kubectl port-forward -n k8ssandra svc/k8ssandra-dc1-stargate-service 8080 8081 8082 9042 &
+
+
 
 read -p "Select pod: " pod
 
