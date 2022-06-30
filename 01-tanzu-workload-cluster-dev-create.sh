@@ -107,3 +107,5 @@ tanzu cluster kubeconfig get $workload_cluster_name --admin --export-file ${work
 #TAG THE PUBLIC SUBNET TO BE ABLE TO CREATE ELBs
 #aws ec2 delete-tags --resources YOUR-PUBLIC-SUBNET-ID-OR-IDS
 aws ec2 create-tags --resources $public_subnet_id --tags Key=kubernetes.io/cluster/${workload_cluster_name},Value=shared
+
+tanzu cluster scale $workload_cluster_name --worker-machine-count 3
