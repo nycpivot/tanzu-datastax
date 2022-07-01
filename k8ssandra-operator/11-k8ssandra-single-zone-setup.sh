@@ -22,3 +22,4 @@ kubectl get pods -n k8ssandra -w
 
 
 kubectl port-forward -n k8ssandra svc/k8ssandra-dc1-stargate-service 8080 8081 8082 9042 &
+
